@@ -26,11 +26,11 @@ namespace Educast
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<VideoContext>(opt =>
+            services.AddDbContext<DocumentContext>(opt =>
                opt.UseInMemoryDatabase("VideoList"));
             services.AddControllers();
 
-            services.AddDbContext<VideoContext>(options =>
+            services.AddDbContext<DocumentContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("VideoContext")));
         }
 
