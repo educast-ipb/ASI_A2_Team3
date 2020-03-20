@@ -29,6 +29,8 @@ namespace Educast
         {
             services.AddDbContext<VideoContext>(opt =>
                opt.UseInMemoryDatabase("VideoList"));
+            services.AddDbContext<ChapterContext>(opt =>
+               opt.UseInMemoryDatabase("Educast"));
             services.AddDbContext<BrandingContext>(opt =>
                opt.UseInMemoryDatabase("BrandingList"));
             services.AddDbContext<DocumentContext>(opt =>
@@ -40,6 +42,8 @@ namespace Educast
 
             services.AddDbContext<VideoContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("VideoContext")));
+            services.AddDbContext<ChapterContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("ChapterContext")));
             services.AddDbContext<BrandingContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("BrandingContext")));   
             services.AddDbContext<DocumentContext>(options =>
