@@ -28,10 +28,15 @@ namespace Educast
         {
             services.AddDbContext<VideoContext>(opt =>
                opt.UseInMemoryDatabase("VideoList"));
+            services.AddDbContext<BrandingContext>(opt =>
+               opt.UseInMemoryDatabase("BrandingList"));
             services.AddControllers();
+            
 
             services.AddDbContext<VideoContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("VideoContext")));
+            services.AddDbContext<BrandingContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("BrandingContext")));   
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
