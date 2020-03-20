@@ -29,12 +29,16 @@ namespace Educast
         {
             services.AddDbContext<VideoContext>(opt =>
                opt.UseInMemoryDatabase("VideoList"));
+            services.AddDbContext<DocumentContext>(opt =>
+               opt.UseInMemoryDatabase("DocumentList"));
             services.AddDbContext<CanalContext>(opt =>
                opt.UseInMemoryDatabase("CanalList"));
             services.AddControllers();
 
             services.AddDbContext<VideoContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("VideoContext")));
+            services.AddDbContext<DocumentContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("DocumentContext")));
             services.AddDbContext<CanalContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("CanalContext")));
         }
