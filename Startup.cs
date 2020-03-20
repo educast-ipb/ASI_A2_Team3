@@ -26,12 +26,17 @@ namespace Educast
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DocumentContext>(opt =>
+            services.AddDbContext<VideoContext>(opt =>
                opt.UseInMemoryDatabase("VideoList"));
+            services.AddDbContext<DocumentContext>(opt =>
+               opt.UseInMemoryDatabase("DocumentList"));
+            
             services.AddControllers();
 
-            services.AddDbContext<DocumentContext>(options =>
+            services.AddDbContext<VideoContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("VideoContext")));
+            services.AddDbContext<DocumentContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("DocumentContext")));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
