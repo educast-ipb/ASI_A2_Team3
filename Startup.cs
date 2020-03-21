@@ -37,6 +37,8 @@ namespace Educast
                opt.UseInMemoryDatabase("DocumentList"));
             services.AddDbContext<CanalContext>(opt =>
                opt.UseInMemoryDatabase("CanalList"));
+            services.AddDbContext<SubtitleContext>(opt =>
+               opt.UseInMemoryDatabase("SubtitleList"));
             services.AddControllers();
             
 
@@ -50,6 +52,8 @@ namespace Educast
                     options.UseSqlServer(Configuration.GetConnectionString("DocumentContext")));
             services.AddDbContext<CanalContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("CanalContext")));
+            services.AddDbContext<SubtitleContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("SubtitleContext")));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
